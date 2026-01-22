@@ -1,0 +1,17 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: docker:24
+  services:
+    - docker:24-dind
+  script:
+    - docker build -t vegastack-app .
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploy step here"
+
